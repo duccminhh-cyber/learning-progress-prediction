@@ -370,7 +370,7 @@ streamlit run app.py
 
 Dashboard tương tác cung cấp cái nhìn toàn diện về dự đoán và hiệu suất mô hình:
 
-![Giao diện Dashboard](./dashboard_preview.png)
+![Giao diện Dashboard](image/dashboard_preview.png)
 
 #### **Tính năng chính:**
 

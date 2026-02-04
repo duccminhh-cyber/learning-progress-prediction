@@ -53,7 +53,33 @@ git clone https://github.com/duccminhh-cyber/learning-progress-prediction.git
 cd learning-progress-prediction
 ```
 
-**Step 2:** Install dependencies
+**Step 2:** Create the `data` folder and add required datasets
+
+> ⚠️ **IMPORTANT:** The `data` folder is not included in the repository as per competition requirements. You must create it manually.
+
+Create the `data` folder in the project root:
+```bash
+mkdir data
+```
+
+Then, place the following files inside the `data/` folder:
+- `academic_records.csv` - Student academic history data
+- `admission.csv` - Student admission information
+- `test.csv` - Test dataset for predictions
+
+Your project structure should look like this:
+```
+learning-progress-prediction/
+├── data/                        # ← Create this folder
+│   ├── academic_records.csv     # ← Add these files
+│   ├── admission.csv
+│   └── test.csv
+├── dashboard/
+├── model/
+└── ...
+```
+
+**Step 3:** Install dependencies
 ```bash
 pip install -r requirements.txt
 ```
@@ -62,7 +88,7 @@ pip install -r requirements.txt
 
 ### 🚀 Quick Start
 
-> ⚠️ **IMPORTANT:** Always run commands from the project root directory (`learning-progress-prediction`) to avoid path errors.
+> ⚠️ **IMPORTANT:** Ensure you have created the `data` folder and added the required CSV files before proceeding.
 
 #### **Step 0: Exploratory Data Analysis (Optional)**
 
@@ -84,7 +110,7 @@ To understand the dataset before training:
 
 **Output Files:**
 - `model/ensemble_models_grandmaster.pkl` - Trained ensemble model
-- `dashboard/dashboard_data.pkl` - Dashboard data (must be in `dashboard/` folder)
+- `dashboard/dashboard_data.pkl` - Dashboard data
 
 #### **Step 2: Generate Predictions**
 
@@ -112,7 +138,7 @@ streamlit run app.py
 
 ```
 learning-progress-prediction/
-├── data/                        # Raw input data
+├── data/                        # Raw input data (CREATE THIS FOLDER)
 │   ├── academic_records.csv     # Academic history
 │   ├── admission.csv            # Admission information
 │   └── test.csv                 # Test dataset for predictions
@@ -140,14 +166,17 @@ learning-progress-prediction/
 ### 📊 Workflow
 
 ```
-1. EDA.ipynb           →  Explore & understand the data
-2. pipeline.ipynb      →  Train models & generate predictions
-3. app.py              →  Visualize results & explain predictions
+1. Setup data folder          →  Create data/ and add CSV files
+2. EDA.ipynb                  →  Explore & understand the data
+3. pipeline.ipynb             →  Train models & generate predictions
+4. app.py                     →  Visualize results & explain predictions
 ```
 
-### 🔧 Important Configuration Note
+### 🔧 Important Notes
 
-The `dashboard_data.pkl` file is stored in the `dashboard/` folder along with `app.py`. The application automatically loads data from the same directory.
+- **Data Folder**: The `data` folder is excluded from the repository per competition requirements. You must create it and add the required CSV files manually.
+- **File Paths**: The application automatically loads data from the `data/` folder. Ensure all files are placed correctly.
+- **Dashboard Data**: `dashboard_data.pkl` is stored in the `dashboard/` folder along with `app.py`.
 
 
 ### 📝 License
@@ -196,7 +225,33 @@ git clone https://github.com/duccminhh-cyber/learning-progress-prediction.git
 cd learning-progress-prediction
 ```
 
-**Bước 2:** Cài đặt các thư viện phụ thuộc
+**Bước 2:** Tạo thư mục `data` và thêm các tập dữ liệu cần thiết
+
+> ⚠️ **QUAN TRỌNG:** Thư mục `data` không được đưa vào repository theo yêu cầu của BTC. Bạn phải tạo thư mục này thủ công.
+
+Tạo thư mục `data` trong thư mục gốc của dự án:
+```bash
+mkdir data
+```
+
+Sau đó, đặt các file sau vào trong thư mục `data/`:
+- `academic_records.csv` - Dữ liệu lịch sử học tập sinh viên
+- `admission.csv` - Thông tin tuyển sinh sinh viên
+- `test.csv` - Tập dữ liệu cần dự báo
+
+Cấu trúc dự án của bạn sẽ như sau:
+```
+learning-progress-prediction/
+├── data/                        # ← Tạo thư mục này
+│   ├── academic_records.csv     # ← Thêm các file này
+│   ├── admission.csv
+│   └── test.csv
+├── dashboard/
+├── model/
+└── ...
+```
+
+**Bước 3:** Cài đặt các thư viện phụ thuộc
 ```bash
 pip install -r requirements.txt
 ```
@@ -205,7 +260,7 @@ pip install -r requirements.txt
 
 ### 🚀 Hướng dẫn chạy
 
-> ⚠️ **LƯU Ý QUAN TRỌNG:** Vui lòng luôn mở Terminal tại thư mục gốc (`learning-progress-prediction`) để chạy các lệnh dưới đây. Không cd sâu vào các thư mục con để tránh lỗi đường dẫn.
+> ⚠️ **QUAN TRỌNG:** Đảm bảo bạn đã tạo thư mục `data` và thêm các file CSV cần thiết trước khi tiếp tục.
 
 #### **Bước 0: Phân tích dữ liệu khám phá (Tùy chọn)**
 
@@ -222,12 +277,12 @@ pip install -r requirements.txt
 #### **Bước 1: Tiền xử lý & Huấn luyện mô hình**
 
 1. Mở file `src/pipeline.ipynb` bằng Jupyter Notebook hoặc VS Code
-2. Chọn Kernel Python đã cài đặt thư viện ở Bước 2
+2. Chọn Kernel Python đã cài đặt thư viện ở Bước 3
 3. Nhấn **Run All** để chạy tuần tự từ trên xuống dưới
 
 **Kết quả sinh ra:**
 - `model/ensemble_models_grandmaster.pkl` - Mô hình dự báo
-- `dashboard/dashboard_data.pkl` - Dữ liệu cho Dashboard (phải nằm trong thư mục `dashboard/`)
+- `dashboard/dashboard_data.pkl` - Dữ liệu cho Dashboard
 
 #### **Bước 2: Sinh kết quả dự báo**
 
@@ -255,7 +310,7 @@ streamlit run app.py
 
 ```
 learning-progress-prediction/
-├── data/                        # Chứa dữ liệu đầu vào (Raw Data)
+├── data/                        # Chứa dữ liệu đầu vào (TẠO THƯ MỤC NÀY)
 │   ├── academic_records.csv     # Lịch sử học tập
 │   ├── admission.csv            # Thông tin tuyển sinh
 │   └── test.csv                 # Tập dữ liệu cần dự báo
@@ -283,14 +338,17 @@ learning-progress-prediction/
 ### 📊 Quy trình làm việc
 
 ```
-1. EDA.ipynb           →  Khám phá & hiểu dữ liệu
-2. pipeline.ipynb      →  Huấn luyện mô hình & tạo dự đoán
-3. app.py              →  Trực quan hóa kết quả & giải thích dự đoán
+1. Thiết lập thư mục data      →  Tạo data/ và thêm các file CSV
+2. EDA.ipynb                   →  Khám phá & hiểu dữ liệu
+3. pipeline.ipynb              →  Huấn luyện mô hình & tạo dự đoán
+4. app.py                      →  Trực quan hóa kết quả & giải thích dự đoán
 ```
 
-### 🔧 Lưu ý cấu hình
+### 🔧 Lưu ý quan trọng
 
-File `dashboard_data.pkl` được lưu trong thư mục `dashboard/` cùng với `app.py`. Ứng dụng sẽ tự động tải dữ liệu từ cùng thư mục.
+- **Thư mục Data**: Thư mục `data` không được đưa vào repository theo yêu cầu của BTC. Bạn phải tạo thư mục này và thêm các file CSV cần thiết thủ công.
+- **Đường dẫn File**: Ứng dụng tự động tải dữ liệu từ thư mục `data/`. Đảm bảo tất cả các file được đặt đúng vị trí.
+- **Dữ liệu Dashboard**: File `dashboard_data.pkl` được lưu trong thư mục `dashboard/` cùng với `app.py`.
 
 
 ### 📝 Bản quyền

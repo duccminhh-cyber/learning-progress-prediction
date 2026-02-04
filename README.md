@@ -53,7 +53,31 @@ git clone https://github.com/duccminhh-cyber/learning-progress-prediction.git
 cd learning-progress-prediction
 ```
 
-**Step 2:** Create the `data` folder and add required datasets
+**Step 2:** Create and activate virtual environment
+
+> 💡 **Recommended:** Using a virtual environment helps isolate project dependencies and avoid conflicts.
+
+**For Linux/macOS:**
+```bash
+# Create virtual environment
+python3 -m venv lpp-venv
+
+# Activate virtual environment
+source lpp-venv/bin/activate
+```
+
+**For Windows:**
+```bash
+# Create virtual environment
+python -m venv lpp-venv
+
+# Activate virtual environment
+lpp-venv\Scripts\activate
+```
+
+> ✅ After activation, you should see `(lpp-venv)` prefix in your terminal prompt.
+
+**Step 3:** Create the `data` folder and add required datasets
 
 > ⚠️ **IMPORTANT:** The `data` folder is not included in the repository as per competition requirements. You must create it manually.
 
@@ -79,7 +103,7 @@ learning-progress-prediction/
 └── ...
 ```
 
-**Step 3:** Install dependencies
+**Step 4:** Install dependencies
 ```bash
 pip install -r requirements.txt
 ```
@@ -88,14 +112,16 @@ pip install -r requirements.txt
 
 ### 🚀 Quick Start
 
-> ⚠️ **IMPORTANT:** Ensure you have created the `data` folder and added the required CSV files before proceeding.
+> ⚠️ **IMPORTANT:** 
+> - Ensure your virtual environment is activated
+> - Ensure you have created the `data` folder and added the required CSV files
 
 #### **Step 0: Exploratory Data Analysis (Optional)**
 
 To understand the dataset before training:
 
 1. Open `src/EDA.ipynb` in Jupyter Notebook or VS Code
-2. Select the Python kernel with installed dependencies
+2. Select the Python kernel from your virtual environment (`lpp-venv`)
 3. Run all cells sequentially to see:
    - Data distributions and statistics
    - Missing value analysis
@@ -105,7 +131,7 @@ To understand the dataset before training:
 #### **Step 1: Train the Model**
 
 1. Open `src/pipeline.ipynb` in Jupyter Notebook or VS Code
-2. Select the Python kernel with installed dependencies
+2. Select the Python kernel from your virtual environment (`lpp-venv`)
 3. Run all cells sequentially (Run All). Running all the cells is estimated to take 5-10 minutes.
 
 **Output Files:**
@@ -120,17 +146,18 @@ Predictions on the test set will be automatically saved to `result/submission_fi
 
 To run the interactive dashboard:
 
-1. Navigate to the `dashboard` folder where `app.py` is located:
+1. Ensure your virtual environment is activated
+2. Navigate to the `dashboard` folder where `app.py` is located:
 ```bash
 cd dashboard
 ```
 
-2. Run the Streamlit application:
+3. Run the Streamlit application:
 ```bash
 streamlit run app.py
 ```
 
-3. Your default browser will automatically open and display the dashboard at: **http://localhost:8501**
+4. Your default browser will automatically open and display the dashboard at: **http://localhost:8501**
 
 > 💡 **Tip:** If the browser doesn't open automatically, manually navigate to the URL shown in the terminal.
 
@@ -195,8 +222,9 @@ learning-progress-prediction/
 │
 ├── src/                         # Source code
 │   ├── EDA.ipynb                # Exploratory Data Analysis notebook
-│   └── pipeline.ipynb           # End-to-End pipeline notebook includes Cleaning, Feature Eginnering, Train Model, Prepare dashboard_data, Inference
+│   └── pipeline.ipynb           # End-to-End pipeline notebook includes Cleaning, Feature Engineering, Train Model, Prepare dashboard_data, Inference
 │
+├── lpp-venv/                    # Virtual environment (created by you)
 ├── requirements.txt             # Python dependencies
 ├── .gitignore                   # Git ignore configuration
 ├── LICENSE                      # MIT License
@@ -206,18 +234,26 @@ learning-progress-prediction/
 ### 📊 Workflow
 
 ```
-1. Setup data folder          →  Create data/ and add CSV files
-2. EDA.ipynb                  →  Explore & understand the data
-3. pipeline.ipynb             →  Cleaning, Feature Eginnering, Train Model, Prepare dashboard_data, Inference
-4. app.py                     →  Visualize results & explain predictions
+1. Setup virtual environment   →  Create and activate venv
+2. Setup data folder           →  Create data/ and add CSV files
+3. EDA.ipynb                   →  Explore & understand the data
+4. pipeline.ipynb              →  Cleaning, Feature Engineering, Train Model, Prepare dashboard_data, Inference
+5. app.py                      →  Visualize results & explain predictions
 ```
 
 ### 🔧 Important Notes
 
+- **Virtual Environment**: Always activate your virtual environment before running any code or installing packages
 - **Data Folder**: The `data` folder is excluded from the repository per competition requirements. You must create it and add the required CSV files manually.
 - **File Paths**: The application automatically loads data from the `data/` folder. Ensure all files are placed correctly.
 - **Dashboard Data**: `dashboard_data.pkl` is stored in the `dashboard/` folder along with `app.py`.
 
+### 💡 Deactivating Virtual Environment
+
+When you're done working on the project:
+```bash
+deactivate
+```
 
 **Achieved Metrics:**
 - **R² Score**: 76.3% (Strong variance explanation)
@@ -279,7 +315,31 @@ git clone https://github.com/duccminhh-cyber/learning-progress-prediction.git
 cd learning-progress-prediction
 ```
 
-**Bước 2:** Tạo thư mục `data` và thêm các tập dữ liệu cần thiết
+**Bước 2:** Tạo và kích hoạt môi trường ảo (virtual environment)
+
+> 💡 **Khuyến nghị:** Sử dụng môi trường ảo giúp cô lập các dependencies của dự án và tránh xung đột.
+
+**Đối với Linux/macOS:**
+```bash
+# Tạo môi trường ảo
+python3 -m venv lpp-venv
+
+# Kích hoạt môi trường ảo
+source lpp-venv/bin/activate
+```
+
+**Đối với Windows:**
+```bash
+# Tạo môi trường ảo
+python -m venv lpp-venv
+
+# Kích hoạt môi trường ảo
+lpp-venv\Scripts\activate
+```
+
+> ✅ Sau khi kích hoạt, bạn sẽ thấy tiền tố `(lpp-venv)` trong terminal prompt.
+
+**Bước 3:** Tạo thư mục `data` và thêm các tập dữ liệu cần thiết
 
 > ⚠️ **QUAN TRỌNG:** Thư mục `data` không được đưa vào repository theo yêu cầu của BTC. Bạn phải tạo thư mục này thủ công.
 
@@ -305,7 +365,7 @@ learning-progress-prediction/
 └── ...
 ```
 
-**Bước 3:** Cài đặt các thư viện phụ thuộc
+**Bước 4:** Cài đặt các thư viện phụ thuộc
 ```bash
 pip install -r requirements.txt
 ```
@@ -314,14 +374,16 @@ pip install -r requirements.txt
 
 ### 🚀 Hướng dẫn chạy
 
-> ⚠️ **QUAN TRỌNG:** Đảm bảo bạn đã tạo thư mục `data` và thêm các file CSV cần thiết trước khi tiếp tục.
+> ⚠️ **QUAN TRỌNG:** 
+> - Đảm bảo môi trường ảo của bạn đã được kích hoạt
+> - Đảm bảo bạn đã tạo thư mục `data` và thêm các file CSV cần thiết
 
 #### **Bước 0: Phân tích dữ liệu khám phá (Tùy chọn)**
 
 Để hiểu rõ dữ liệu trước khi huấn luyện:
 
 1. Mở file `src/EDA.ipynb` bằng Jupyter Notebook hoặc VS Code
-2. Chọn Kernel Python đã cài đặt thư viện
+2. Chọn Kernel Python từ môi trường ảo của bạn (`lpp-venv`)
 3. Chạy tuần tự các cell để xem:
    - Phân bố và thống kê dữ liệu
    - Phân tích giá trị thiếu
@@ -331,8 +393,8 @@ pip install -r requirements.txt
 #### **Bước 1: Tiền xử lý & Huấn luyện mô hình**
 
 1. Mở file `src/pipeline.ipynb` bằng Jupyter Notebook hoặc VS Code
-2. Chọn Kernel Python đã cài đặt thư viện ở Bước 3
-3. Nhấn **Run All** để chạy tuần tự từ trên xuống dưới(Chạy hết tất cả các cell ước tính mất từ 5-10 phút)
+2. Chọn Kernel Python từ môi trường ảo của bạn (`lpp-venv`)
+3. Nhấn **Run All** để chạy tuần tự từ trên xuống dưới (Chạy hết tất cả các cell ước tính mất từ 5-10 phút)
 
 **Kết quả sinh ra:**
 - `model/ensemble_models_grandmaster.pkl` - Mô hình dự báo
@@ -346,17 +408,18 @@ Kết quả dự báo trên tập Test sẽ được lưu tự động vào `res
 
 Để chạy giao diện Dashboard tương tác:
 
-1. Di chuyển vào thư mục `dashboard` nơi chứa file `app.py`:
+1. Đảm bảo môi trường ảo của bạn đã được kích hoạt
+2. Di chuyển vào thư mục `dashboard` nơi chứa file `app.py`:
 ```bash
 cd dashboard
 ```
 
-2. Chạy ứng dụng Streamlit:
+3. Chạy ứng dụng Streamlit:
 ```bash
 streamlit run app.py
 ```
 
-3. Trình duyệt sẽ tự động mở và hiển thị giao diện Dashboard tại địa chỉ: **http://localhost:8501**
+4. Trình duyệt sẽ tự động mở và hiển thị giao diện Dashboard tại địa chỉ: **http://localhost:8501**
 
 > 💡 **Mẹo:** Nếu trình duyệt không tự động mở, hãy truy cập thủ công vào địa chỉ URL hiển thị trong Terminal.
 
@@ -421,8 +484,9 @@ learning-progress-prediction/
 │
 ├── src/                         # Mã nguồn chính (Source Code)
 │   ├── EDA.ipynb                # Notebook phân tích dữ liệu khám phá
-│   └── pipeline.ipynb           # Notebook pipeline End-to-End bao gồm Cleaning, Feature Eginnering, Train Model, Prepare dashboard_data, Inference
+│   └── pipeline.ipynb           # Notebook pipeline End-to-End bao gồm Cleaning, Feature Engineering, Train Model, Prepare dashboard_data, Inference
 │
+├── lpp-venv/                    # Môi trường ảo (do bạn tạo)
 ├── requirements.txt             # Danh sách các thư viện cần cài đặt
 ├── .gitignore                   # Cấu hình file ẩn khỏi Git
 ├── LICENSE                      # Giấy phép mã nguồn
@@ -432,19 +496,26 @@ learning-progress-prediction/
 ### 📊 Quy trình làm việc
 
 ```
-1. Thiết lập thư mục data      →  Tạo data/ và thêm các file CSV
-2. EDA.ipynb                   →  Khám phá & hiểu dữ liệu
-3. pipeline.ipynb              →  Cleaning, Feature Eginnering, Train Model, Prepare dashboard_data, Inference
-4. app.py                      →  Trực quan hóa kết quả & giải thích dự đoán
+1. Thiết lập môi trường ảo     →  Tạo và kích hoạt venv
+2. Thiết lập thư mục data      →  Tạo data/ và thêm các file CSV
+3. EDA.ipynb                   →  Khám phá & hiểu dữ liệu
+4. pipeline.ipynb              →  Cleaning, Feature Engineering, Train Model, Prepare dashboard_data, Inference
+5. app.py                      →  Trực quan hóa kết quả & giải thích dự đoán
 ```
 
 ### 🔧 Lưu ý quan trọng
 
+- **Môi trường ảo**: Luôn kích hoạt môi trường ảo trước khi chạy bất kỳ code nào hoặc cài đặt packages
 - **Thư mục Data**: Thư mục `data` không được đưa vào repository theo yêu cầu của BTC. Bạn phải tạo thư mục này và thêm các file CSV cần thiết thủ công.
 - **Đường dẫn File**: Ứng dụng tự động tải dữ liệu từ thư mục `data/`. Đảm bảo tất cả các file được đặt đúng vị trí.
 - **Dữ liệu Dashboard**: File `dashboard_data.pkl` được lưu trong thư mục `dashboard/` cùng với `app.py`.
 
+### 💡 Tắt môi trường ảo
 
+Khi bạn hoàn thành công việc với dự án:
+```bash
+deactivate
+```
 
 **Chỉ số đạt được:**
 - **R² Score**: 76.3% (Giải thích phương sai tốt)

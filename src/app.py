@@ -7,9 +7,6 @@ import shap
 import joblib
 from streamlit_shap import st_shap
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
-# =============================================================================
-# 1. CẤU HÌNH TRANG & CSS (DARK MODE THEME)
-# =============================================================================
 st.set_page_config(
     page_title="Learning Analytics Dark",
     page_icon="🎓",
@@ -17,7 +14,6 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# --- CSS DARK MODE ---
 st.markdown("""
 <style>
     /* Import Font */
@@ -93,7 +89,6 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Hàm vẽ KPI Card Dark Mode
 def display_kpi(col, title, value, subtext, color_border="#00d2ff"):
     col.markdown(f"""
     <div class="dashboard-card" style="border-left: 4px solid {color_border};">
@@ -103,9 +98,6 @@ def display_kpi(col, title, value, subtext, color_border="#00d2ff"):
     </div>
     """, unsafe_allow_html=True)
 
-# =============================================================================
-# 2. DATA LOADING CORE
-# =============================================================================
 @st.cache_data
 def load_data_pro():
     try:
@@ -130,7 +122,6 @@ def load_data_pro():
         actual = normalize(raw_y, tc_dangky)
         preds = normalize(raw_preds, tc_dangky)
 
-        # Post-process
         preds = np.clip(preds, 0, tc_dangky)
         mask_zero = (tc_dangky == 0)
         preds[mask_zero] = 0
@@ -153,9 +144,6 @@ if df is None:
     st.error("❌ Không thể tải dữ liệu. Vui lòng kiểm tra file 'dashboard_data.pkl'.")
     st.stop()
 
-# =============================================================================
-# 3. SIDEBAR (DARK THEME)
-# =============================================================================
 with st.sidebar:
     st.markdown("### 🎓 **Dashboard 4_chị_em_412**")
     st.markdown("---")
@@ -183,15 +171,9 @@ with st.sidebar:
     st.markdown("---")
     st.caption("© 2026 DarkMode UI Version")
 
-# =============================================================================
-# 4. MAIN DASHBOARD AREA
-# =============================================================================
-
-# --- Header ---
 st.markdown('<div class="gradient-text">🔮 Dự báo Kết quả Học tập</div>', unsafe_allow_html=True)
 st.markdown("---")
 
-# --- KPI Section ---
 try:
     rmse = np.sqrt(mean_squared_error(df['Thực tế'], df['Dự báo']))
     mae = mean_absolute_error(df['Thực tế'], df['Dự báo'])
@@ -199,7 +181,6 @@ try:
     acc = np.mean(df['Sai số tuyệt đối'] <= 2.0) * 100
 
     col1, col2, col3, col4 = st.columns(4)
-    # Sử dụng các màu Neon sáng trên nền đen
     display_kpi(col1, "RMSE (Sai số chuẩn)", f"{rmse:.2f}", "Tín chỉ", "#00d2ff") # Cyan
     display_kpi(col2, "MAE (Sai số TB)", f"{mae:.2f}", "Tín chỉ", "#00e676") # Neon Green
     display_kpi(col3, "R² Score", f"{r2:.1%}", "Variance", "#ffab00") # Amber
@@ -210,12 +191,10 @@ except Exception as e:
 
 st.markdown("<br>", unsafe_allow_html=True)
 
-# --- Charts Section ---
 c1, c2 = st.columns(2)
 
-# Cấu hình chung cho biểu đồ tối màu
 layout_dark = dict(
-    paper_bgcolor='rgba(0,0,0,0)', # Nền trong suốt
+    paper_bgcolor='rgba(0,0,0,0)',
     plot_bgcolor='rgba(0,0,0,0)',
     font=dict(color='#FAFAFA'),
     xaxis=dict(showgrid=True, gridcolor='#444'),
@@ -228,7 +207,6 @@ with c1:
     fig_scatter = px.scatter(
         df, x='Thực tế', y='Dự báo',
         color='Sai số tuyệt đối',
-        # Dùng dải màu tối (Magma/Plasma) cho nổi trên nền đen
         color_continuous_scale='Plasma_r',
         hover_data=['MA_SO_SV', 'TC_DANGKY'],
         height=500
@@ -245,7 +223,7 @@ with c2:
 
     fig_hist = px.histogram(
         df, x='Sai số', nbins=50, marginal="box",
-        color_discrete_sequence=['#00d2ff'], # Màu Cyan nổi bật
+        color_discrete_sequence=['#00d2ff'],
         height=500
     )
     fig_hist.update_layout(**layout_dark)
@@ -254,9 +232,6 @@ with c2:
     st.plotly_chart(fig_hist, width="stretch")
     st.markdown('</div>', unsafe_allow_html=True)
 
-# =============================================================================
-# 5. STUDENT DETAIL & SHAP
-# =============================================================================
 st.markdown("<br>", unsafe_allow_html=True)
 st.markdown('<div class="gradient-text" style="font-size: 1.8rem;">🧬 Phân tích Chi tiết (Explainable AI)</div>', unsafe_allow_html=True)
 
@@ -288,16 +263,11 @@ with col_metric:
 with col_viz:
     st.markdown("##### Yếu tố tác động (SHAP Waterfall)")
     try:
-        # SHAP Waterfall mặc định nền trắng, hơi khó chỉnh CSS can thiệp sâu
-        # Nhưng st_shap vẫn hiển thị tốt trên nền đen
         st_shap(shap.plots.waterfall(shap_values[selected_idx], max_display=10), height=400)
     except:
         st.warning("Dữ liệu SHAP không khả dụng.")
 
 st.markdown('</div>', unsafe_allow_html=True)
 
-# =============================================================================
-# 6. FOOTER
-# =============================================================================
 with st.expander("📂 Xem dữ liệu chi tiết (Raw Data)"):
     st.dataframe(df, width="stretch", height=300)

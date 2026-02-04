@@ -134,6 +134,46 @@ streamlit run app.py
 
 > 💡 **Tip:** If the browser doesn't open automatically, manually navigate to the URL shown in the terminal.
 
+### 📊 Dashboard Features
+
+The interactive dashboard provides comprehensive insights into model predictions and performance:
+
+![Dashboard Preview](./dashboard_preview.png)
+
+#### **Main Features:**
+
+🎯 **Student Lookup**
+- Search students by ID (Index) to view detailed predictions
+- Input student ID (0-15143) to get individual analysis
+
+📈 **Performance Metrics**
+- **RMSE (Root Mean Square Error)**: Model accuracy indicator
+- **MAE (Mean Absolute Error)**: Average prediction error
+- **R² Score**: Variance explanation (76.3%)
+- **Accuracy (±2 credits)**: Prediction confidence (56.9%)
+
+🔍 **Explainable AI (SHAP Analysis)**
+- **SHAP Waterfall Plot**: Shows how each feature contributes to individual predictions
+- Feature importance visualization
+- Positive/negative impact analysis of each feature
+- Understand why the model made specific predictions
+
+📊 **Visualization Charts**
+- **Actual vs Predicted Scatter Plot**: Compare real outcomes with predictions
+- **Error Distribution Histogram**: Analyze prediction accuracy patterns
+- Color-coded by absolute error for easy interpretation
+
+📋 **Raw Data Viewer**
+- Access complete student information
+- View predicted scores, actual scores, and errors
+- Sortable and searchable data table
+- Export functionality for further analysis
+
+⚠️ **Alert System**
+- Automatic warnings for at-risk students
+- Identifies students with low predicted scores
+- Helps prioritize interventions
+
 ### 📂 Project Structure
 
 ```
@@ -178,6 +218,26 @@ learning-progress-prediction/
 - **File Paths**: The application automatically loads data from the `data/` folder. Ensure all files are placed correctly.
 - **Dashboard Data**: `dashboard_data.pkl` is stored in the `dashboard/` folder along with `app.py`.
 
+### 📈 Model Performance
+
+The ensemble model combines three powerful gradient boosting algorithms:
+- **LightGBM** - Fast training and efficient memory usage
+- **XGBoost** - Robust regularization and high accuracy
+- **CatBoost** - Excellent handling of categorical features
+
+**Achieved Metrics:**
+- **R² Score**: 76.3% (Strong variance explanation)
+- **RMSE**: 3.42 (Low prediction error)
+- **MAE**: 2.41 (Consistent accuracy)
+- **Accuracy (±2 credits)**: 56.9% (High precision predictions)
+
+### 🔍 Explainability
+
+The dashboard provides SHAP (SHapley Additive exPlanations) visualizations to understand:
+- **Feature importance**: Which factors most influence predictions
+- **Individual predictions**: Detailed breakdown of each student's predicted outcome
+- **Model transparency**: Clear explanation of decision-making process
+- **Positive/Negative impacts**: How each feature affects the final prediction
 
 ### 📝 License
 
@@ -306,6 +366,46 @@ streamlit run app.py
 
 > 💡 **Mẹo:** Nếu trình duyệt không tự động mở, hãy truy cập thủ công vào địa chỉ URL hiển thị trong Terminal.
 
+### 📊 Tính năng Dashboard
+
+Dashboard tương tác cung cấp cái nhìn toàn diện về dự đoán và hiệu suất mô hình:
+
+![Giao diện Dashboard](./dashboard_preview.png)
+
+#### **Tính năng chính:**
+
+🎯 **Tra cứu Sinh viên**
+- Tìm kiếm sinh viên theo mã số (Index) để xem phân tích chi tiết
+- Nhập mã sinh viên (0-15143) để nhận phân tích cá nhân
+
+📈 **Chỉ số Hiệu suất**
+- **RMSE (Sai số Chuẩn)**: Chỉ số độ chính xác mô hình
+- **MAE (Sai số Tuyệt đối TB)**: Sai số dự đoán trung bình
+- **R² Score**: Khả năng giải thích phương sai (76.3%)
+- **Độ chính xác (±2 tín chỉ)**: Độ tin cậy dự đoán (56.9%)
+
+🔍 **Phân tích AI Giải thích được (SHAP)**
+- **Biểu đồ SHAP Waterfall**: Hiển thị cách mỗi đặc trưng đóng góp vào dự đoán cá nhân
+- Trực quan hóa tầm quan trọng đặc trưng
+- Phân tích tác động tích cực/tiêu cực của từng đặc trưng
+- Hiểu tại sao mô hình đưa ra dự đoán cụ thể
+
+📊 **Biểu đồ Trực quan**
+- **Biểu đồ Phân tán Thực tế vs Dự báo**: So sánh kết quả thực với dự đoán
+- **Biểu đồ Phân bố Sai số**: Phân tích mẫu độ chính xác dự đoán
+- Mã màu theo sai số tuyệt đối để dễ diễn giải
+
+📋 **Xem Dữ liệu Thô**
+- Truy cập thông tin sinh viên đầy đủ
+- Xem điểm dự đoán, điểm thực tế và sai số
+- Bảng dữ liệu có thể sắp xếp và tìm kiếm
+- Chức năng xuất để phân tích thêm
+
+⚠️ **Hệ thống Cảnh báo**
+- Cảnh báo tự động cho sinh viên có nguy cơ
+- Xác định sinh viên có điểm dự đoán thấp
+- Giúp ưu tiên can thiệp
+
 ### 📂 Cấu trúc dự án
 
 ```
@@ -350,6 +450,21 @@ learning-progress-prediction/
 - **Đường dẫn File**: Ứng dụng tự động tải dữ liệu từ thư mục `data/`. Đảm bảo tất cả các file được đặt đúng vị trí.
 - **Dữ liệu Dashboard**: File `dashboard_data.pkl` được lưu trong thư mục `dashboard/` cùng với `app.py`.
 
+
+
+**Chỉ số đạt được:**
+- **R² Score**: 76.3% (Giải thích phương sai tốt)
+- **RMSE**: 3.42 (Sai số dự đoán thấp)
+- **MAE**: 2.41 (Độ chính xác ổn định)
+- **Độ chính xác (±2 tín chỉ)**: 56.9% (Dự đoán chính xác cao)
+
+### 🔍 Khả năng giải thích
+
+Dashboard cung cấp trực quan hóa SHAP (SHapley Additive exPlanations) để hiểu:
+- **Tầm quan trọng đặc trưng**: Yếu tố nào ảnh hưởng nhiều nhất đến dự đoán
+- **Dự đoán cá nhân**: Phân tích chi tiết kết quả dự đoán của từng sinh viên
+- **Tính minh bạch mô hình**: Giải thích rõ ràng quá trình ra quyết định
+- **Tác động Tích cực/Tiêu cực**: Cách mỗi đặc trưng ảnh hưởng đến dự đoán cuối cùng
 
 ### 📝 Bản quyền
 

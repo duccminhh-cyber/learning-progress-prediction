@@ -41,7 +41,7 @@ This project builds an end-to-end machine learning pipeline for predicting stude
 
 **System Requirements:**
 - **Operating System:** Windows 10/11, Linux (Ubuntu 20.04+), or MacOS
-- **Python:** Version 3.13.5 (or equivalent 3.13.x version)
+- **Python:** Version 3.13.5 
 - **RAM:** Minimum 8GB (16GB recommended for training)
 - **Storage:** At least 1GB free space
 
@@ -106,7 +106,7 @@ To understand the dataset before training:
 
 1. Open `src/pipeline.ipynb` in Jupyter Notebook or VS Code
 2. Select the Python kernel with installed dependencies
-3. Run all cells sequentially (Run All)
+3. Run all cells sequentially (Run All). Running all the cells is estimated to take 5-10 minutes.
 
 **Output Files:**
 - `model/ensemble_models_grandmaster.pkl` - Trained ensemble model
@@ -218,12 +218,6 @@ learning-progress-prediction/
 - **File Paths**: The application automatically loads data from the `data/` folder. Ensure all files are placed correctly.
 - **Dashboard Data**: `dashboard_data.pkl` is stored in the `dashboard/` folder along with `app.py`.
 
-### 📈 Model Performance
-
-The ensemble model combines three powerful gradient boosting algorithms:
-- **LightGBM** - Fast training and efficient memory usage
-- **XGBoost** - Robust regularization and high accuracy
-- **CatBoost** - Excellent handling of categorical features
 
 **Achieved Metrics:**
 - **R² Score**: 76.3% (Strong variance explanation)
@@ -273,7 +267,7 @@ Dự án xây dựng pipeline End-to-End từ phân tích dữ liệu khám phá
 
 **Cấu hình tối thiểu:**
 - **Hệ điều hành:** Windows 10/11, Linux (Ubuntu 20.04+), hoặc MacOS
-- **Python:** Phiên bản 3.13.5 (hoặc phiên bản tương đương 3.13.x)
+- **Python:** Phiên bản 3.13.5 
 - **RAM:** Tối thiểu 8GB (Khuyến nghị 16GB để chạy Training Pipeline)
 - **Ổ cứng:** Trống tối thiểu 1GB
 
@@ -338,7 +332,7 @@ pip install -r requirements.txt
 
 1. Mở file `src/pipeline.ipynb` bằng Jupyter Notebook hoặc VS Code
 2. Chọn Kernel Python đã cài đặt thư viện ở Bước 3
-3. Nhấn **Run All** để chạy tuần tự từ trên xuống dưới
+3. Nhấn **Run All** để chạy tuần tự từ trên xuống dưới(Chạy hết tất cả các cell ước tính mất từ 5-10 phút)
 
 **Kết quả sinh ra:**
 - `model/ensemble_models_grandmaster.pkl` - Mô hình dự báo

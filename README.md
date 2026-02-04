@@ -1,6 +1,6 @@
 # 🏆 Student Learning Progress Prediction
 
-<div align="center">
+<div align="left">
 
 ![Python](https://img.shields.io/badge/Python-3.13.5-blue.svg)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)

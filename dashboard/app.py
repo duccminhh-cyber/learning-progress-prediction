@@ -101,7 +101,7 @@ def display_kpi(col, title, value, subtext, color_border="#00d2ff"):
 @st.cache_data
 def load_data_pro():
     try:
-        data = joblib.load('../dashboard/dashboard_data.pkl')
+        data = joblib.load('dashboard_data.pkl')
     except:
         return None, None, None, None, None
 

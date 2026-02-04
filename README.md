@@ -138,7 +138,7 @@ streamlit run app.py
 
 The interactive dashboard provides comprehensive insights into model predictions and performance:
 
-![Dashboard Preview](./dashboard_preview.png)
+![Dashboard Preview](image/dashboard_preview.png)
 
 #### **Main Features:**
 

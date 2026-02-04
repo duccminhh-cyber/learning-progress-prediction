@@ -270,4 +270,4 @@ with col_viz:
 st.markdown('</div>', unsafe_allow_html=True)
 
 with st.expander("📂 Xem dữ liệu chi tiết (Raw Data)"):
-    st.dataframe(df, width="stretch", height=300)
+    st.dataframe(df, use_container_width=True, height=300)

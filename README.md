@@ -195,7 +195,7 @@ learning-progress-prediction/
 │
 ├── src/                         # Source code
 │   ├── EDA.ipynb                # Exploratory Data Analysis notebook
-│   └── pipeline.ipynb           # Training & evaluation notebook
+│   └── pipeline.ipynb           # End-to-End pipeline notebook includes Cleaning, Feature Eginnering, Train Model, Prepare dashboard_data, Inference
 │
 ├── requirements.txt             # Python dependencies
 ├── .gitignore                   # Git ignore configuration
@@ -208,7 +208,7 @@ learning-progress-prediction/
 ```
 1. Setup data folder          →  Create data/ and add CSV files
 2. EDA.ipynb                  →  Explore & understand the data
-3. pipeline.ipynb             →  Train models & generate predictions
+3. pipeline.ipynb             →  Cleaning, Feature Eginnering, Train Model, Prepare dashboard_data, Inference
 4. app.py                     →  Visualize results & explain predictions
 ```
 
@@ -421,7 +421,7 @@ learning-progress-prediction/
 │
 ├── src/                         # Mã nguồn chính (Source Code)
 │   ├── EDA.ipynb                # Notebook phân tích dữ liệu khám phá
-│   └── pipeline.ipynb           # Notebook Training, Feature Eng. & Evaluation
+│   └── pipeline.ipynb           # Notebook pipeline End-to-End bao gồm Cleaning, Feature Eginnering, Train Model, Prepare dashboard_data, Inference
 │
 ├── requirements.txt             # Danh sách các thư viện cần cài đặt
 ├── .gitignore                   # Cấu hình file ẩn khỏi Git
@@ -434,7 +434,7 @@ learning-progress-prediction/
 ```
 1. Thiết lập thư mục data      →  Tạo data/ và thêm các file CSV
 2. EDA.ipynb                   →  Khám phá & hiểu dữ liệu
-3. pipeline.ipynb              →  Huấn luyện mô hình & tạo dự đoán
+3. pipeline.ipynb              →  Cleaning, Feature Eginnering, Train Model, Prepare dashboard_data, Inference
 4. app.py                      →  Trực quan hóa kết quả & giải thích dự đoán
 ```
 
